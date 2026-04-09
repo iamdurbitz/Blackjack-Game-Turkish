@@ -10,24 +10,24 @@
                 <h1>Blackjack</h1> 
             </div> 
             <div>
-                <p id="message-el">Want to play a round?</p>
-                <p id="dealer-hand-el">Dealer's hand:</p>
-                <p id="dealer-sum-el">Dealer's sum:</p>
-                <p id="cards-el">Your cards:</p>
-                <p id="sum-el">Your sum:</p>
+                <p id="message-el">Bir el oynamak ister misiniz?</p>
+                <p id="dealer-hand-el">Krupiyenin eli:</p>
+                <p id="dealer-sum-el">Krupiyenin kartlarının toplamı:</p>
+                <p id="cards-el">Eliniz:</p>
+                <p id="sum-el">Kartlarınızın toplamı:</p>
             </div>
             <div>
-                <button id="start-game-btn-el" onclick="startGame()">START GAME</button>
-                <button onclick="newCard()">HIT</button>
-                <button onclick="stand()">STAND</button>
+                <button id="start-game-btn-el" onclick="startGame()">OYUNA BAŞLA</button>
+                <button onclick="newCard()">ÇEK</button>
+                <button onclick="stand()">KAL</button>
             </div>
             <div>
                 <p id="player-el"></p>
             </div>
             <div id="betting-section">
-                <p id="bet-amount-el">Enter your bet amount:</p>
-                <input type="number" id="bet-input" placeholder="Bet amount:" min="1">
-                <button onclick="placeBet()">PLACE BET</button>
+                <p id="bet-amount-el">Bahis miktarınızı giriniz:</p>
+                <input type="number" id="bet-input" placeholder="Miktar:" min="1">
+                <button onclick="placeBet()">BAHİS VER</button>
                 <p id="bet-status-el"></p>
             </div>
             <script src="index.js"></script>

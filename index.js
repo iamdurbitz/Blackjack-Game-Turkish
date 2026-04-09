@@ -23,7 +23,7 @@ let playerEl = document.getElementById("player-el")
 let betAmountEl = document.getElementById("bet-amount-el")
 let startGameBtnEl = document.getElementById("start-game-btn-el")
 
-playerEl.textContent = player.name + ": $" + player.chips
+playerEl.textContent = player.name + ": ₺" + player.chips
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
@@ -52,39 +52,39 @@ function startGame() {
             let dealerSecondCard = getRandomCard()
             dealerCards = [dealerFirstCard, dealerSecondCard]
             dealerSum = dealerFirstCard + dealerSecondCard
-            startGameBtnEl.textContent = "NEW GAME"
+            startGameBtnEl.textContent = "YENİ OYUN"
             renderGame()
             isBetted = false
             player.chips -= betAmount
             playerEl.textContent = player.name + ": $" + player.chips
         } else {
-            messageEl.textContent = "Invalid bet amount!"
+            messageEl.textContent = "Geçersiz bahis miktarı!!"
         }
     } else {
-        messageEl.textContent = "You need to bet first!"
+        messageEl.textContent = "Önce bahis vermeniz gerekiyor!!"
     }
 }
 
 function renderGame() {
-    cardsEl.textContent = "Your cards: "
-    dealerHandEl.textContent = "Dealer's cards: " + dealerCards[0] + " + ?"
+    cardsEl.textContent = "Eliniz: "
+    dealerHandEl.textContent = "Krupiyenin eli: " + dealerCards[0] + " + ?"
     for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
     }
 
-    sumEl.textContent = "Your sum: " + sum
-    dealerSumEl.textContent = "Dealer's sum: " + dealerCards[0]
+    sumEl.textContent = "Kartlarınızın toplamı: " + sum
+    dealerSumEl.textContent = "Krupiyenin eli: " + dealerCards[0]
     if (sum <= 20) {
-        message = "Do you want to draw a new card?"
+        message = "Yeni bir kart çekmek ister misiniz?"
     } else if (sum === 21) {
-        message = "You Won!"
+        message = "Kazandınız!"
         hasBlackJack = true
         player.chips += betAmount * 2
-        playerEl.textContent = player.name + ": $" + player.chips
+        playerEl.textContent = player.name + ": ₺" + player.chips
     } else {
-        message = "You lost!"
+        message = "Kaybettiniz!"
         isAlive = false
-        playerEl.textContent = player.name + ": $" + player.chips
+        playerEl.textContent = player.name + ": ₺" + player.chips
     }
     messageEl.textContent = message
 }
@@ -105,46 +105,46 @@ function stand() {
         if (isAlive === true && sum === 21) {
             if (sum > dealerSum) {
                 isWon = true
-                message = "You won!"
+                message = "Kazandınız!!"
                 player.chips += betAmount * 2
-                playerEl.textContent = player.name + ": $" + player.chips
+                playerEl.textContent = player.name + ": ₺" + player.chips
             } else if (sum === dealerSum) {
                 isWon = true
-                message = "Tie!"
+                message = "Berabere!"
                 player.chips += betAmount
-                playerEl.textContent = player.name + ": $" + player.chips
+                playerEl.textContent = player.name + ": ₺" + player.chips
             }
         } else if (dealerSum > 21 ) {
             isWon = true
-            message = "You Won!"
+            message = "Kazandınız!"
             player.chips += betAmount * 2
-            playerEl.textContent = player.name + ": $" + player.chips
+            playerEl.textContent = player.name + ": ₺" + player.chips
         } else if (isAlive === true && sum > dealerSum) {
             isWon = true
-            message = "You Won!"
+            message = "Kazandınız!"
             player.chips += betAmount * 2
-            playerEl.textContent = player.name + ": $" + player.chips
+            playerEl.textContent = player.name + ": ₺" + player.chips
         } else if (isAlive === true && sum < dealerSum) {
             isAlive = false
-            message = "You Lost!"
-            playerEl.textContent = player.name + ": $" + player.chips
+            message = "Kaybettiniz!"
+            playerEl.textContent = player.name + ": ₺" + player.chips
         } else if (isAlive === true && sum === dealerSum) {
             isWon = true
-            message = "Tie!"
+            message = "Berabere!"
             player.chips += betAmount
-            playerEl.textContent = player.name + ": $" + player.chips
+            playerEl.textContent = player.name + ": ₺" + player.chips
         } else if (isAlive === false) {
             isAlive = false
-            message = "You Lost!"
-            playerEl.textContent = player.name + ": $" + player.chips
+            message = "Kaybettiniz!!"
+            playerEl.textContent = player.name + ": ₺" + player.chips
         }
         messageEl.textContent = message
     }
-    dealerHandEl.textContent = "Dealer's cards: "
+    dealerHandEl.textContent = "Krupiyenin eli: "
     for (let i = 0; i < dealerCards.length; i++) {
     dealerHandEl.textContent += dealerCards[i] + " "
     }
-    dealerSumEl.textContent = "Dealer's sum: " + dealerSum
+    dealerSumEl.textContent = "Krupiyenin kartlarının toplamı: " + dealerSum
 }
 
 function checkDealerHand() {
@@ -179,12 +179,12 @@ function dealerNewCard() {
 function placeBet() {
     if (isBetted === false) {
         betAmount = parseInt(document.getElementById("bet-input").value)
-        betAmountEl.textContent = "Bet amount: $" + betAmount
+        betAmountEl.textContent = "Bahis miktarı: ₺" + betAmount
         isBetted = true
     } else {
-    betAmountEl.textContent = "You already placed a bet! "
+    betAmountEl.textContent = "Zaten bahis verdiniz! "
         setTimeout(function() {
-            betAmountEl.textContent = "Bet amount: $" + betAmount
+            betAmountEl.textContent = "Bahis miktarı: ₺" + betAmount
         }, 3000)
     }
 }
