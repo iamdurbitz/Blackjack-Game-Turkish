@@ -23,7 +23,7 @@ let playerEl = document.getElementById("player-el")
 let betAmountEl = document.getElementById("bet-amount-el")
 let startGameBtnEl = document.getElementById("start-game-btn-el")
 
-playerEl.textContent = player.name + ": ₺" + player.chips
+playerEl.textContent = "Bakiye: ₺" + player.chips
 
 function getRandomCard() {
     let randomNumber = Math.floor( Math.random()*13 ) + 1
